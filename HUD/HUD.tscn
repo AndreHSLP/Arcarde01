@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HUD/HUD.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pontos" type="Label" parent="."]
+margin_left = 72.0853
+margin_top = 43.1507
+margin_right = 112.085
+margin_bottom = 57.1507
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 14.0853
+margin_top = 43.1507
+margin_right = 72.0853
+margin_bottom = 57.1507
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PONTOS:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = 14.0853
+margin_top = 20.577
+margin_right = 136.085
+margin_bottom = 34.577
+__meta__ = {
+"_edit_use_anchors_": false
+}

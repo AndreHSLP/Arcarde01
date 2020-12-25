@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Player/ThirdPersonController/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Teste/SpawnInimigos/Spawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Mapas/Mapa1.gd" type="Script" id=3]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Teste/TesteLavanca/Lavanca.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[sub_resource type="PlaneMesh" id=3]
+size = Vector2( 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=4]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 4.95995, 0.01, 5.00629 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.232699, 0.137512, 0.260923 )
+
+[node name="Mapa" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Path" parent="." instance=ExtResource( 2 )]
+
+[node name="Spatial" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.999991, 0.00414198, -0.000719745, -0.00414208, 0.999991, -0.000134018, 0.000719185, 0.00013699, 1, -5.74586, 2.52842, -1.02371 )
+luz = NodePath("../SpotLight")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="ChaoTest" type="MeshInstance" parent="."]
+transform = Transform( 6.72239, 0, 0, 0, 1, 0, 0, 0, 6.72239, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Chao" type="KinematicBody" parent="ChaoTest"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ChaoTest/Chao"]
+shape = SubResource( 5 )
+
+[node name="Control" parent="." instance=ExtResource( 4 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669218, 5.92277, 1.51107 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0507671, 0.998711, 0, -0.998711, 0.0507671, 0, 2.6705, -1.00024 )
+
+[node name="Luz" type="Area" parent="SpotLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00638771, 0.00151241, 0.0206649 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SpotLight/Luz"]
+shape = SubResource( 6 )
