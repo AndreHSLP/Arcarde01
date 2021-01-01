@@ -40,7 +40,6 @@ func _ready():
 	InnerGimbal =  $InnerGimbal
 	get_parent().get_node("Algo").texto("Player01")
 	
-	pass
 
 func _unhandled_input(event):
 	
@@ -118,15 +117,6 @@ func _unhandled_input(event):
 				CurrentVerticalSpeed = Vector3(0,MaxJump,0)
 				IsAirborne = true
 
-##########################		
-#	Atirar bala teste
-#		if Input.is_key_pressed(KEY_1):
-#			var bala=test.instance()
-#			bala.rotation=-get_global_transform().basis.z
-#			bala.translation = get_parent().translation
-#			get_tree().get_root().add_child(bala)
-#		
-##########################
 	Direction.z = clamp(Direction.z, -1,1)
 	Direction.x = clamp(Direction.x, -1,1)
 	
