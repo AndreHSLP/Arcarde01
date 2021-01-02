@@ -65,8 +65,6 @@ func _unhandled_input(event):
 		Parado=!Parado
 		print(Parado)
 		
-		
-		
 		#if Input.get_mouse_mode()==Input.MOUSE_MODE_CAPTURED:
 			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			#$Inventario.visible=true
@@ -102,7 +100,7 @@ func _unhandled_input(event):
 #					IsAirborne = true
 	Direction.z=0
 	Direction.x=0
-	#var input_movement_vector = Vector2()
+
 	if Input.get_mouse_mode()==Input.MOUSE_MODE_CAPTURED:
 		if Input.is_action_pressed("movement_forward"):
 			Direction.z -= 1
@@ -126,9 +124,6 @@ func _unhandled_input(event):
 	
 
 func _physics_process(delta):
-	#Rotation
-	
-	
 	
 	if Input.get_mouse_mode()==Input.MOUSE_MODE_CAPTURED:
 		Player.rotate_y(deg2rad(-Rotation.x)*delta*MouseSensitivity)
